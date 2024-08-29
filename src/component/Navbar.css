@@ -1,0 +1,12 @@
+.custom-switch .input-one {
+    background-color: rgb(255, 255, 255); /* Change the switch background color to gray */
+    border-color: rgb(214, 214, 214);     /* Change the switch border color to gray */
+}
+.custom-switch .input-one:checked {
+    background-color: rgb(137, 134, 160); /* Change the switch background color when checked */
+    border-color: rgb(0, 0, 0);     /* Change the switch border color when checked */
+}
+.custom-switch .input-one:focus {
+    box-shadow: none;      /* Remove the default blue shadow */
+    outline: none;         /* Remove the default outline */
+}
