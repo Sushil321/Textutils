@@ -1,42 +1,48 @@
-import React , {useState}  from "react";
+// import React , {useState}  from "react";
 
-function Aboutus(){
-    const [myStyle, setMyStyle] = useState({
-        color: 'black',
-        backgroundColor:'white',
-    })
+function Aboutus(props){
+    // const [myStyle, setMyStyle] = useState({
+    //     color: 'black',
+    //     backgroundColor:'white',
+    // })
 
-    const [btnText , setBtnText] = useState("Enable Dark Mode");
-
-
-    const changeTheme = ()=>{
-        if(myStyle.color === 'black'){
-            setMyStyle({
-                color:'white',
-                backgroundColor: 'black',
-                border: '1px solid white',
-            })
-            setBtnText("Enable Light Mode")
-        }
-        else{
-            setMyStyle({
-                color:'black',
-                backgroundColor: 'white',
-
-            })
-            setBtnText("Enable Dark Mode")
-
-        }
+    let myStyle ={
+        
+        color : props.mode === "dark"?"white":"black",
+        backgroundColor: props.mode === "dark" ? "#00468b" : props.mode === "gray" ? "gray" : "white",
     }
+
+    // const [btnText , setBtnText] = useState("Enable Dark Mode");
+
+
+    // const changeTheme = ()=>{
+    //     if(myStyle.color === 'black'){
+    //         setMyStyle({
+    //             color:'white',
+    //             backgroundColor: 'black',
+    //             border: '1px solid white',
+    //         })
+    //         setBtnText("Enable Light Mode")
+    //     }
+    //     else{
+    //         setMyStyle({
+    //             color:'black',
+    //             backgroundColor: 'white',
+
+    //         })
+    //         setBtnText("Enable Dark Mode")
+
+    //     }
+    // }
 
 
     
     
     return(
-        <div className="container mt-6" style={myStyle} >
-            <h1 className="text-center mb-2" >About Us</h1>
+        <div className="container mt-6" style={{marginTop:"30px"}} >
+            <h1 className="text-center mb-2" style={{color:props.mode==="light"?"#00468b":"white"}}>About Us</h1>
                     <div className="accordion" id="accordionExample">
-                        <div className="accordion-item">
+                        <div className="accordion-item" style={myStyle}>
                             <h2 className="accordion-header" id="headingOne">
                             <button className="accordion-button" type="button" style={myStyle} data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 Accordion Item #1
@@ -48,7 +54,7 @@ function Aboutus(){
                             </div>
                             </div>
                         </div>
-                        <div className="accordion-item">
+                        <div className="accordion-item" style={myStyle}>
                             <h2 className="accordion-header" id="headingTwo">
                             <button className="accordion-button collapsed" style={myStyle} type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                 Accordion Item #2
@@ -60,7 +66,7 @@ function Aboutus(){
                             </div>
                             </div>
                         </div>
-                        <div className="accordion-item">
+                        <div className="accordion-item" style={myStyle}>
                             <h2 className="accordion-header" id="headingThree">
                             <button className="accordion-button collapsed" style={myStyle} type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                 Accordion Item #3
@@ -73,10 +79,7 @@ function Aboutus(){
                             </div>
                         </div>
                     </div>
-                    <div className="container">
-                        <button className="btn btn-dark mt-2 mb-3 " onClick={changeTheme} >{btnText}</button>
-
-                    </div>
+                    
 
                     
         </div>

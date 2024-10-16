@@ -74,15 +74,24 @@ function App() {
   return (
     <>
     <Router>
-    <Navbar title="Mirror" about="AboutUs" mode={mode} toggleMode={toggleMode} />
-    <Alert alert={alert}/>
-    <Routes>
-          <Route path="/about" element={<Aboutus />} />
+      <Navbar title="Mirror" about="AboutUs" mode={mode} toggleMode={toggleMode} />
+      <Alert alert={alert} />
 
-          <Route path="/" element={<TextForm  heading={"Write to Analyze"} mode={mode} />} />
-          
-          
-    </Routes>
+      <Routes>
+        {/* Default route should be defined first for better readability and debugging */}
+        <Route
+          path="*"
+          element={
+            <TextForm
+              heading="Try TextUtils - To Remove extra spaces, Copy Text, Uppercase to Lowercase"
+              mode={mode}
+            />
+          }
+        />
+
+        {/* About route */}
+        <Route path="/about" element={<Aboutus mode={mode} />} />
+      </Routes>
     </Router>
 
     </>
